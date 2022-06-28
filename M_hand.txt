@@ -1,0 +1,128 @@
+[NAME]
+"M_hand"
+
+[PLACES]
+p1 -> A_Submitted
+p1 -> tau1
+p10 -> "W_Complete application"
+p11 -> A_Complete
+p12 -> tau4
+p12 -> tau5
+p13 -> O_Cancelled
+p14 -> A_Cancelled
+p15 -> tau6
+p16 -> tau6
+p17 -> "W_Call after offers"
+p18 -> "W_Assess potential fraud"
+p18 -> tau7
+p18 -> tau8
+p19 -> tau9
+p19 -> tau10
+p2 -> tau2
+p20 -> A_Denied
+p21 -> O_Accepted
+p21 -> tau11
+p22 -> O_Refused
+p23 -> tau18
+p24 -> A_Validating
+p25 -> O_Returned
+p25 -> tau13
+p26 -> tau15
+p27 -> tau15
+p28 -> A_Pending
+p28 -> "W_Call incomplete files"
+p28 -> "W_Validate application"
+p29 -> A_Incomplete
+p29 -> tau16
+p3 -> A_Concept
+p30 -> tau17
+p30 -> tau18
+p31 -> tau12
+p31 -> tau14
+p4 -> "W_Handle leads"
+p4 -> tau3
+p5 -> tau7
+p6 -> A_Accepted
+p7 -> "O_Create Offer"
+p8 -> O_Created
+p9 -> "O_Sent (mail and online)"
+source -> "A_Create Application"
+
+[TRANSITIONS]
+A_Accepted -> p7
+A_Cancelled -> p16
+A_Complete -> p12
+A_Concept -> p5
+"A_Create Application" -> p1
+A_Denied -> p22
+A_Incomplete -> p30
+A_Pending -> p30
+A_Submitted -> p2
+A_Validating -> p26
+O_Accepted -> p23
+O_Cancelled -> p15
+"O_Create Offer" -> p8
+O_Created -> p9
+O_Refused -> p4
+O_Returned -> p27
+"O_Sent (mail and online)" -> p10
+"W_Assess potential fraud" -> p20
+"W_Call after offers" -> p18
+"W_Call incomplete files" -> p29
+"W_Complete application" -> p11
+"W_Handle leads" -> p6
+"W_Validate application" -> p29
+tau1 -> p2
+tau10 -> sink
+tau11 -> p23
+tau12 -> p24
+tau12 -> p25
+tau13 -> p27
+tau14 -> p28
+tau15 -> p28
+tau16 -> p30
+tau17 -> p31
+tau18 -> sink
+tau2 -> p3
+tau2 -> p4
+tau3 -> p6
+tau4 -> p13
+tau4 -> p14
+tau5 -> p17
+tau6 -> p17
+tau7 -> p19
+tau8 -> p20
+tau9 -> p21
+tau9 -> p31
+
+[VARIABLES]
+
+[WRITES]
+
+[GUARDS]
+
+[INITIAL]
+source [1]
+
+[FINAL]
+sink [1]
+
+[INVISIBLE]
+tau1
+tau10
+tau11
+tau12
+tau13
+tau14
+tau15
+tau16
+tau17
+tau18
+tau2
+tau3
+tau4
+tau5
+tau6
+tau7
+tau8
+tau9
