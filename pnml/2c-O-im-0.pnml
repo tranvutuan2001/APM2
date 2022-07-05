@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_3">
+        <name>
+          <text>p_3</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p_4">
+        <name>
+          <text>p_4</text>
+        </name>
+      </place>
+      <place id="p_5">
+        <name>
+          <text>p_5</text>
+        </name>
+      </place>
+      <place id="p_6">
+        <name>
+          <text>p_6</text>
+        </name>
+      </place>
+      <transition id="829386a3-e4bd-43c6-be55-eded5f6ccca7">
+        <name>
+          <text>O_Create Offer</text>
+        </name>
+      </transition>
+      <transition id="skip_2">
+        <name>
+          <text>skip_2</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="7c141d57-4a03-4859-a34b-d04b47916053"/>
+      </transition>
+      <transition id="557979c8-bf1d-4662-9489-63e9d7a2f6c3">
+        <name>
+          <text>O_Accepted</text>
+        </name>
+      </transition>
+      <transition id="19ee11af-d2af-42b0-a4fd-92b32ba41207">
+        <name>
+          <text>O_Sent (online only)</text>
+        </name>
+      </transition>
+      <transition id="24a64f00-ffbc-40fe-8e48-84b8eec14a57">
+        <name>
+          <text>O_Sent (mail and online)</text>
+        </name>
+      </transition>
+      <transition id="c2455546-3ef6-4650-a9f1-f10b5f0715db">
+        <name>
+          <text>O_Created</text>
+        </name>
+      </transition>
+      <transition id="skip_1">
+        <name>
+          <text>skip_1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="b5e0da02-ec6f-4372-8745-381162615088"/>
+      </transition>
+      <transition id="ac824395-52d5-43e0-85cd-5e2cf3a62a1e">
+        <name>
+          <text>O_Returned</text>
+        </name>
+      </transition>
+      <transition id="fdaa3ef5-d422-49b5-bc32-0349522e315a">
+        <name>
+          <text>O_Cancelled</text>
+        </name>
+      </transition>
+      <transition id="564078e1-8df3-42e0-bfaa-5cd2ef16bb77">
+        <name>
+          <text>O_Refused</text>
+        </name>
+      </transition>
+      <arc id="3139545319552" source="skip_2" target="p_6"/>
+      <arc id="3139545320080" source="829386a3-e4bd-43c6-be55-eded5f6ccca7" target="p_3"/>
+      <arc id="3139545318160" source="24a64f00-ffbc-40fe-8e48-84b8eec14a57" target="p_5"/>
+      <arc id="3139545320224" source="p_4" target="skip_1"/>
+      <arc id="3139545317920" source="ac824395-52d5-43e0-85cd-5e2cf3a62a1e" target="p_6"/>
+      <arc id="3139545318304" source="fdaa3ef5-d422-49b5-bc32-0349522e315a" target="sink"/>
+      <arc id="3139545319984" source="skip_1" target="p_5"/>
+      <arc id="3139545320752" source="p_4" target="24a64f00-ffbc-40fe-8e48-84b8eec14a57"/>
+      <arc id="3139545318832" source="p_4" target="19ee11af-d2af-42b0-a4fd-92b32ba41207"/>
+      <arc id="3139545318592" source="19ee11af-d2af-42b0-a4fd-92b32ba41207" target="p_5"/>
+      <arc id="3139545320896" source="p_6" target="564078e1-8df3-42e0-bfaa-5cd2ef16bb77"/>
+      <arc id="3139545320272" source="p_6" target="fdaa3ef5-d422-49b5-bc32-0349522e315a"/>
+      <arc id="3139545319504" source="p_6" target="557979c8-bf1d-4662-9489-63e9d7a2f6c3"/>
+      <arc id="3139545319120" source="564078e1-8df3-42e0-bfaa-5cd2ef16bb77" target="sink"/>
+      <arc id="3139545318880" source="p_3" target="c2455546-3ef6-4650-a9f1-f10b5f0715db"/>
+      <arc id="3139545319264" source="c2455546-3ef6-4650-a9f1-f10b5f0715db" target="p_4"/>
+      <arc id="3139545318496" source="557979c8-bf1d-4662-9489-63e9d7a2f6c3" target="sink"/>
+      <arc id="3139545318256" source="source" target="829386a3-e4bd-43c6-be55-eded5f6ccca7"/>
+      <arc id="3139545320944" source="p_5" target="skip_2"/>
+      <arc id="3139545319024" source="p_5" target="ac824395-52d5-43e0-85cd-5e2cf3a62a1e"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

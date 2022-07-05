@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="({'A_Create Application'}, {'A_Submitted'})">
+        <name>
+          <text>({'A_Create Application'}, {'A_Submitted'})</text>
+        </name>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <place id="({'A_Complete'}, {'A_Cancelled'})">
+        <name>
+          <text>({'A_Complete'}, {'A_Cancelled'})</text>
+        </name>
+      </place>
+      <place id="({'A_Create Application'}, {'A_Concept'})">
+        <name>
+          <text>({'A_Create Application'}, {'A_Concept'})</text>
+        </name>
+      </place>
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="({'A_Submitted'}, {'A_Concept'})">
+        <name>
+          <text>({'A_Submitted'}, {'A_Concept'})</text>
+        </name>
+      </place>
+      <place id="({'A_Concept'}, {'A_Accepted'})">
+        <name>
+          <text>({'A_Concept'}, {'A_Accepted'})</text>
+        </name>
+      </place>
+      <place id="({'A_Accepted'}, {'A_Complete'})">
+        <name>
+          <text>({'A_Accepted'}, {'A_Complete'})</text>
+        </name>
+      </place>
+      <place id="({'A_Accepted'}, {'A_Cancelled'})">
+        <name>
+          <text>({'A_Accepted'}, {'A_Cancelled'})</text>
+        </name>
+      </place>
+      <transition id="A_Accepted">
+        <name>
+          <text>A_Accepted</text>
+        </name>
+      </transition>
+      <transition id="A_Create Application">
+        <name>
+          <text>A_Create Application</text>
+        </name>
+      </transition>
+      <transition id="A_Concept">
+        <name>
+          <text>A_Concept</text>
+        </name>
+      </transition>
+      <transition id="A_Complete">
+        <name>
+          <text>A_Complete</text>
+        </name>
+      </transition>
+      <transition id="A_Cancelled">
+        <name>
+          <text>A_Cancelled</text>
+        </name>
+      </transition>
+      <transition id="A_Pending">
+        <name>
+          <text>A_Pending</text>
+        </name>
+      </transition>
+      <transition id="A_Submitted">
+        <name>
+          <text>A_Submitted</text>
+        </name>
+      </transition>
+      <transition id="A_Denied">
+        <name>
+          <text>A_Denied</text>
+        </name>
+      </transition>
+      <transition id="A_Validating">
+        <name>
+          <text>A_Validating</text>
+        </name>
+      </transition>
+      <transition id="A_Incomplete">
+        <name>
+          <text>A_Incomplete</text>
+        </name>
+      </transition>
+      <arc id="3139342502496" source="start" target="A_Create Application"/>
+      <arc id="3139342556992" source="A_Pending" target="end"/>
+      <arc id="3139342553152" source="A_Create Application" target="({'A_Create Application'}, {'A_Submitted'})"/>
+      <arc id="3139342554496" source="A_Denied" target="end"/>
+      <arc id="3139342553248" source="A_Cancelled" target="end"/>
+      <arc id="3139342556416" source="A_Submitted" target="({'A_Submitted'}, {'A_Concept'})"/>
+      <arc id="3139342556608" source="({'A_Submitted'}, {'A_Concept'})" target="A_Concept"/>
+      <arc id="3139342555072" source="A_Concept" target="({'A_Concept'}, {'A_Accepted'})"/>
+      <arc id="3139342553632" source="A_Complete" target="({'A_Complete'}, {'A_Cancelled'})"/>
+      <arc id="3139342557088" source="({'A_Complete'}, {'A_Cancelled'})" target="A_Cancelled"/>
+      <arc id="3139342556080" source="({'A_Create Application'}, {'A_Submitted'})" target="A_Submitted"/>
+      <arc id="3139342557040" source="({'A_Concept'}, {'A_Accepted'})" target="A_Accepted"/>
+      <arc id="3139342555696" source="A_Accepted" target="({'A_Accepted'}, {'A_Complete'})"/>
+      <arc id="3139342554160" source="({'A_Accepted'}, {'A_Complete'})" target="A_Complete"/>
+      <arc id="3139342556560" source="A_Create Application" target="({'A_Create Application'}, {'A_Concept'})"/>
+      <arc id="3139342554688" source="({'A_Create Application'}, {'A_Concept'})" target="A_Concept"/>
+      <arc id="3139342557136" source="({'A_Accepted'}, {'A_Cancelled'})" target="A_Cancelled"/>
+      <arc id="3139342556128" source="A_Accepted" target="({'A_Accepted'}, {'A_Cancelled'})"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

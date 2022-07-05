@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="p_5">
+        <name>
+          <text>p_5</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_3">
+        <name>
+          <text>p_3</text>
+        </name>
+      </place>
+      <place id="p_4">
+        <name>
+          <text>p_4</text>
+        </name>
+      </place>
+      <place id="p_6">
+        <name>
+          <text>p_6</text>
+        </name>
+      </place>
+      <transition id="3082849c-9c80-450f-addf-2983b769a1e1">
+        <name>
+          <text>O_Create Offer</text>
+        </name>
+      </transition>
+      <transition id="7ac784b4-5791-480f-944e-ebd4bd4e713c">
+        <name>
+          <text>O_Returned</text>
+        </name>
+      </transition>
+      <transition id="b579d5f7-dabb-43bb-a7ce-97a206701cd5">
+        <name>
+          <text>O_Sent (mail and online)</text>
+        </name>
+      </transition>
+      <transition id="bb5353fb-d389-4fab-be65-a60949ee51f0">
+        <name>
+          <text>O_Sent (online only)</text>
+        </name>
+      </transition>
+      <transition id="892b37cc-a1b0-4773-a82c-3b877561015f">
+        <name>
+          <text>O_Accepted</text>
+        </name>
+      </transition>
+      <transition id="55e40378-d504-4d3c-a6b8-b8c3886ddd84">
+        <name>
+          <text>O_Created</text>
+        </name>
+      </transition>
+      <transition id="a68ae8fd-d32f-4da1-9be6-8143e1d3e0ff">
+        <name>
+          <text>O_Cancelled</text>
+        </name>
+      </transition>
+      <transition id="64018cf0-fddb-4343-8765-23f7670af999">
+        <name>
+          <text>O_Refused</text>
+        </name>
+      </transition>
+      <arc id="3139456094272" source="source" target="3082849c-9c80-450f-addf-2983b769a1e1"/>
+      <arc id="3139586013216" source="p_4" target="b579d5f7-dabb-43bb-a7ce-97a206701cd5"/>
+      <arc id="3139456097440" source="3082849c-9c80-450f-addf-2983b769a1e1" target="p_3"/>
+      <arc id="3139586013600" source="b579d5f7-dabb-43bb-a7ce-97a206701cd5" target="p_5"/>
+      <arc id="3139586014464" source="bb5353fb-d389-4fab-be65-a60949ee51f0" target="p_5"/>
+      <arc id="3139586011776" source="p_5" target="7ac784b4-5791-480f-944e-ebd4bd4e713c"/>
+      <arc id="3139586014272" source="p_6" target="a68ae8fd-d32f-4da1-9be6-8143e1d3e0ff"/>
+      <arc id="3139586015040" source="p_6" target="892b37cc-a1b0-4773-a82c-3b877561015f"/>
+      <arc id="3139586011200" source="892b37cc-a1b0-4773-a82c-3b877561015f" target="sink"/>
+      <arc id="3139586012832" source="64018cf0-fddb-4343-8765-23f7670af999" target="sink"/>
+      <arc id="3139586011920" source="55e40378-d504-4d3c-a6b8-b8c3886ddd84" target="p_4"/>
+      <arc id="3139586015184" source="p_3" target="55e40378-d504-4d3c-a6b8-b8c3886ddd84"/>
+      <arc id="3139586012016" source="p_4" target="bb5353fb-d389-4fab-be65-a60949ee51f0"/>
+      <arc id="3139586012208" source="7ac784b4-5791-480f-944e-ebd4bd4e713c" target="p_6"/>
+      <arc id="3139586012592" source="a68ae8fd-d32f-4da1-9be6-8143e1d3e0ff" target="sink"/>
+      <arc id="3139586011632" source="p_6" target="64018cf0-fddb-4343-8765-23f7670af999"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p_4">
+        <name>
+          <text>p_4</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_3">
+        <name>
+          <text>p_3</text>
+        </name>
+      </place>
+      <place id="p_5">
+        <name>
+          <text>p_5</text>
+        </name>
+      </place>
+      <place id="p_6">
+        <name>
+          <text>p_6</text>
+        </name>
+      </place>
+      <transition id="4a0f176e-bda6-4059-a16e-9ad718fcbda9">
+        <name>
+          <text>O_Sent (mail and online)</text>
+        </name>
+      </transition>
+      <transition id="d97723ba-2f59-4922-b0d1-02e0f9f1b687">
+        <name>
+          <text>O_Returned</text>
+        </name>
+      </transition>
+      <transition id="ce556dc6-a840-4ed6-8d0b-6d1911923ef0">
+        <name>
+          <text>O_Cancelled</text>
+        </name>
+      </transition>
+      <transition id="473f9f03-ef60-408b-b59d-deb7f102b6db">
+        <name>
+          <text>O_Accepted</text>
+        </name>
+      </transition>
+      <transition id="3dc08686-94d2-4471-ba4a-a6cbb5061866">
+        <name>
+          <text>O_Refused</text>
+        </name>
+      </transition>
+      <transition id="dbfe200a-d346-453f-96c8-d4fafbba9244">
+        <name>
+          <text>O_Create Offer</text>
+        </name>
+      </transition>
+      <transition id="73eb2e85-45a0-4bcf-9c8c-2b0b0af4d64e">
+        <name>
+          <text>O_Sent (online only)</text>
+        </name>
+      </transition>
+      <transition id="skip_1">
+        <name>
+          <text>skip_1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="58ba3826-acbc-4624-962b-405583587867"/>
+      </transition>
+      <transition id="6f22d9c4-ae63-4371-b58a-14272c3854c9">
+        <name>
+          <text>O_Created</text>
+        </name>
+      </transition>
+      <arc id="3139387863584" source="dbfe200a-d346-453f-96c8-d4fafbba9244" target="p_3"/>
+      <arc id="3139401607296" source="p_4" target="4a0f176e-bda6-4059-a16e-9ad718fcbda9"/>
+      <arc id="3139387865984" source="6f22d9c4-ae63-4371-b58a-14272c3854c9" target="p_4"/>
+      <arc id="3139387864256" source="p_3" target="6f22d9c4-ae63-4371-b58a-14272c3854c9"/>
+      <arc id="3139401607872" source="4a0f176e-bda6-4059-a16e-9ad718fcbda9" target="p_5"/>
+      <arc id="3139401605952" source="p_4" target="73eb2e85-45a0-4bcf-9c8c-2b0b0af4d64e"/>
+      <arc id="3139401607008" source="p_5" target="skip_1"/>
+      <arc id="3139401609120" source="skip_1" target="p_6"/>
+      <arc id="3139401605760" source="p_5" target="d97723ba-2f59-4922-b0d1-02e0f9f1b687"/>
+      <arc id="3139401607584" source="ce556dc6-a840-4ed6-8d0b-6d1911923ef0" target="sink"/>
+      <arc id="3139401608256" source="p_6" target="3dc08686-94d2-4471-ba4a-a6cbb5061866"/>
+      <arc id="3139387866224" source="source" target="dbfe200a-d346-453f-96c8-d4fafbba9244"/>
+      <arc id="3139401606192" source="73eb2e85-45a0-4bcf-9c8c-2b0b0af4d64e" target="p_5"/>
+      <arc id="3139401606768" source="d97723ba-2f59-4922-b0d1-02e0f9f1b687" target="p_6"/>
+      <arc id="3139401605328" source="p_6" target="ce556dc6-a840-4ed6-8d0b-6d1911923ef0"/>
+      <arc id="3139401606096" source="p_6" target="473f9f03-ef60-408b-b59d-deb7f102b6db"/>
+      <arc id="3139401605232" source="473f9f03-ef60-408b-b59d-deb7f102b6db" target="sink"/>
+      <arc id="3139401606624" source="3dc08686-94d2-4471-ba4a-a6cbb5061866" target="sink"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
